@@ -31,11 +31,11 @@ public class Author {
         this.books = books;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -63,17 +63,24 @@ public class Author {
         this.books = books;
     }
 
+
+
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Author)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
+
         Author author = (Author) o;
-        return Objects.equals(getId(), author.getId());
+
+        return Objects.equals(id, author.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+
+        return id != null ? id.hashCode() : 0;
     }
 
     @Override
